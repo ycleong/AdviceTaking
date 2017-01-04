@@ -1,3 +1,14 @@
+%% Choice model
+% Calculate choice likelihood given estimated pUP or p(a) using softmax function
+%    Inputs - 
+%       pHat: estimated pUP or p(a)
+%       choice: participants predictions on the stock or bets on advisors
+%       FitParms: regularizing priors over free parameters
+%       X: parameters to fit
+%    Outputs -
+%       lik: log likelihood
+%       latents: latent variables on each trial
+
 function [lik,latents] = basic_bayes(pHat,choice,FitParms,X,a,b)
 
 Beta = X(1);
@@ -28,9 +39,9 @@ for i = 1
         lik = lik - log(gampdf(X(1),FitParms.Parms(1,1),FitParms.Parms(1,2)));
     end
     
-    if (FitParms.Use(2))    % putting a Gamma prior on Beta
-        lik = lik - log(exppdf(a,FitParms.Parms(2,1)));
-        lik = lik - log(exppdf(b,FitParms.Parms(2,1)));
-    end
+%     if (FitParms.Use(2))    % putting a Gamma prior on Beta
+%         lik = lik - log(exppdf(a,FitParms.Parms(2,1)));
+%         lik = lik - log(exppdf(b,FitParms.Parms(2,1)));
+%     end
 end
 end

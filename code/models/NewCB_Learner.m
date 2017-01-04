@@ -1,4 +1,17 @@
-%% New CB Learner
+%% Confirmation Bias Learner
+% Implementation for the Confirmation Bias model.
+% Code is adapted from Michael Waskom's probability learner (used in Waskom, Frank, & Wagner, 2016):
+%   https://github.com/mwaskom/optlearner/blob/master/ProbabilityLearner.ipynb
+% Which was in turn adapted from Tim Behren's model in Behrens et al., 2007:
+%   https://www.ncbi.nlm.nih.gov/pubmed/17676057
+% Inputs -
+%     thisOutcome: vector of [1,0] indicating history of advisor performance
+%     betaprior: prior distribution 
+%     alpha: degree of confirmation bias (set as one).
+% Outputs -
+%     fit_p: data structure containing posterior distribution on each trial, as well as the mean
+%     posterior estimate
+
 function [fit_p] = NewCB_Learner(thisOutcome,betaprior,alpha)
 
 % Set up parameter grids

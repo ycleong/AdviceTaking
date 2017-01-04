@@ -1,8 +1,8 @@
-%% Generate Figure: Study 1 Self Phase
-% Panel A: Simulated data stock
-% Panel B: Number of trials predicted
-% Panel C: Number of trials pred
-
+%% Model participants' predictions in the Stock Prediction phase for Study 1 and 2
+% Also plots Figure 1 of paper.
+%   Panel A: Example sequence of pUP, outcomes, and estimated pUP
+%   Panel B: Proportion of trials correctly predicted
+%   Panel C: Observed choice frequency vs. model predicted choice frequency.
 clear mex
 clear all
 
@@ -13,8 +13,8 @@ load(fullfile(dirs.data,'AllData.mat'));
 AllData_Expt2 = load(fullfile(dirs.data,('AllData_Expt2.mat')));
 addpath('models');
 
-run_BO_stock = 1;
-run_fit_self = 1;
+run_BO_stock = 0;
+run_fit_self = 0;
 
 %% Subjects
 Sub = [101 102 103 104 105 106 107 108 109 110 112 113 114 115 116 118 119 120 121 122 123 124 125 126 127 128];

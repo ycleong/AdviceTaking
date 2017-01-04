@@ -1,12 +1,12 @@
 %% Find Betas
-% This script performs the model-fitting for the Advisor Evaluation Phase 
-% The best-fit priors for each model:
-% Confirmation Bias Model
+% This script performs the model-fitting for the Advisor Evaluation Phase for Expt 2
+% Assumes a different prior for each advisor
+% The best-fit priors for the Confirmation Bias Model
 %   1-star advisor: h1 = 0.2; t1 = 0.8
 %   2-star advisor: h2 = 1.5; t2 = 3.1;
 %   3-star advisor: h3 = 3.0; t3 = 0.9;
 %   4-star advisor: h4 = 1.6; t4 = 0.1;
-% Bayesian Learning Model
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             Set Directories Paths and Script Parameters                                  %

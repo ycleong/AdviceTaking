@@ -30,7 +30,7 @@ See [here](data/readme_exptfiles.md) for a readme for information about the impo
 * [Choice Model (Softmax function)](code/models/basic_bayes.m)
 * Find best fit value for alpha and beta for prior distribution
     * [Version 1](code/expt1/findpriors.m): One prior for all advisors
-    * [Version 2](code/expt1/findpriors_expt2.m): Different pairs for each advisor
+    * [Version 2](code/expt2/findpriors_expt2.m): Different pairs for each advisor
 * Simulating the model performing the Advisor Evaluation Phase: 
     * [Expt 1](code/expt1/sim_model.m)  
     * [Expt 2](code/expt2/sim_model_expt2.m)

@@ -1,4 +1,17 @@
-%% New CB Learner
+%% Bayesian Learner
+% Implementation for the Bayesian Learning model.
+% Code is adapted from Michael Waskom's probability learner (used in Waskom, Frank, & Wagner, 2016):
+%   https://github.com/mwaskom/optlearner/blob/master/ProbabilityLearner.ipynb
+% Which was in turn adapted from Tim Behren's model in Behrens et al., 2007:
+%   https://www.ncbi.nlm.nih.gov/pubmed/17676057
+% Inputs -
+%     thisOutcome: vector of [1,0] indicating history of advisor performance
+%     betaprior: prior distribution 
+%     alpha: not used in this model
+% Outputs -
+%     fit_p: data structure containing posterior distribution on each trial, as well as the mean
+%     posterior estimate
+
 function [fit_p] = NoCB_Learner(thisOutcome,betaprior,alpha)
 
 % Set up parameter grids
@@ -49,23 +62,12 @@ for i = 1:length(thisOutcome)
     pI = p_trans .* repmat(joint_dist(1,:,:),99,1);
     pI = squeeze(sum(pI,2));
     
-
     % Update P(p_i+1, I) based on the newly observed data
     if thisOutcome(i)
         lik = p_grid;
     else
         lik = 1-p_grid;
     end
-    
-    % Implement confirmation bias
-%     if fit_p.pUP(i) > 0.5
-%         bias = (fit_p.pUP(i) - 0.5)^alpha;        
-%         lik = (1-bias) * lik +  bias * p_grid;
-%         
-%     else
-%         bias = (0.5 - fit_p.pUP(i))^alpha;
-%         lik = (1-bias) * lik + bias * (1-p_grid);
-%     end
     
     pI = pI .* repmat(lik',1,86);
     pI = pI ./ sum(pI(:));

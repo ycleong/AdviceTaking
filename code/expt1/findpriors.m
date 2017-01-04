@@ -1,24 +1,35 @@
-%% Find Priors - Assuming 2 beta distribution
+%% Findpriors.m
+% Finds the MAP estimate of the values for alpha and beta. 
+% Assumes same prior for all advisors
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              Boilet plate                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear mex
 clear all
-
-% Set Directories
-dirs.data = '../../data';
-dirs.results = 'interm_results';
-load(fullfile(dirs.data,'AllData.mat'));
-addpath('../models');
-
-
-Sub = [101 102 103 104 105 106 107 108 109 110 112 113 114 115 116 118 119 120 121 122 123 124 125 126 127 128];
-nSub = length(Sub);
 
 col_code(1,:) = [0.2980392156862745, 0.4470588235294118, 0.6901960784313725];
 col_code(2,:) = [0.3333333333333333, 0.6588235294117647, 0.40784313725490196];
 col_code(3,:) = [0.7686274509803922, 0.3058823529411765, 0.3215686274509804];
 
+% Set Directories and load data
+dirs.data = '../../data';
+dirs.results = 'interm_results';
+load(fullfile(dirs.data,'AllData.mat'));
+addpath('../models');
+
+% Subjects
+Sub = [101 102 103 104 105 106 107 108 109 110 112 113 114 115 116 118 119 120 121 122 123 124 125 126 127 128];
+nSub = length(Sub);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Initialize parameters for model-fitting                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialize variables
 min_sumLogLik = 2000;
 opt_parm = [0,0];
 
+% Set fitting parameters
 Fit.Subjects = Sub;
 Fit.Model = 'Problearner';
 Fit.NIter = 3; % how many iterations of fits to run
@@ -34,9 +45,12 @@ Fit.Priors.Use(1) = 1;   % use (gamma) priors on the Beta (softmax) parameter?
 Fit.Priors.Parms(1,1) = 2;
 Fit.Priors.Parms(1,2) = 3;
 
-Fit.Priors.Use(2) = 1;   % use (gamma) priors on the Beta (softmax) parameter?
+Fit.Priors.Use(0) = 1;   % use exponential prior on alpha and beta
 Fit.Priors.Parms(2,1) = 6;
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               Fit Model                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 op = 1;
 all_opt_parms = NaN(1,2);
 
@@ -48,7 +62,8 @@ for h1 = 1:5
                 y1 = betapdf(x,h1,t1);
                 betaprior = y1;
                 alpha = 1;
-                
+
+                % Fit confirmation bias model to observed outcomes of advisors               
                 for s = 1:nSub
                     thisData = AllData{s,3}.Learn{1,1};
                     for j = 1:3
@@ -65,8 +80,7 @@ for h1 = 1:5
                     fit_p{s,1}.betaparms = [h1 t1];
                 end
                 
-                %% Fit pUP to choice
-                
+                % Fit p(a) to choices    
                 for s = 1:nSub
                     thisData = AllData{s,3}.Learn{1,1};
                     Fit.NTrials(s) = sum(thisData.ValidTrials);
