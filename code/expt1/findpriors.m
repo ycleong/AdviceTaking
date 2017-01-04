@@ -1,6 +1,8 @@
 %% Findpriors.m
 % Finds the MAP estimate of the values for alpha and beta. 
 % Assumes same prior for all advisors
+% Note: For speed purposes here, we search in increments of 1.
+%       In the actual experiment, we search in increments of 0.1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              Boilet plate                               %
@@ -45,8 +47,8 @@ Fit.Priors.Use(1) = 1;   % use (gamma) priors on the Beta (softmax) parameter?
 Fit.Priors.Parms(1,1) = 2;
 Fit.Priors.Parms(1,2) = 3;
 
-Fit.Priors.Use(0) = 1;   % use exponential prior on alpha and beta
-Fit.Priors.Parms(2,1) = 6;
+Fit.Priors.Use(2) = 0;   % exponential prior on alpha and beta
+Fit.Priors.Parms(2,1) = 8;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               Fit Model                                 %
@@ -114,6 +116,9 @@ for h1 = 1:5
                 end
                 LogLik;
                 sumLogLik = sum(LogLik);
+                % Add regularizing priors
+                sumLogLik = sumLogLik - log(exppdf(h1,Fit.Priors.Parms(2,1)));
+                sumLogLik = sumLogLik - log(exppdf(t1,Fit.Priors.Parms(2,1)));
                 
                 if sumLogLik < min_sumLogLik
                     min_sumLogLik = sumLogLik;

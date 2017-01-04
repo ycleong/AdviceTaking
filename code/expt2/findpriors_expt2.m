@@ -6,7 +6,8 @@
 %   2-star advisor: h2 = 1.5; t2 = 3.1;
 %   3-star advisor: h3 = 3.0; t3 = 0.9;
 %   4-star advisor: h4 = 1.6; t4 = 0.1;
-
+% Note: For speed purposes here, we search in increments of 1.
+%       In the actual experiment, we search in increments of 0.1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             Set Directories Paths and Script Parameters                                  %
@@ -54,7 +55,7 @@ Fit.Priors.Use(1) = 1;   % use (gamma) priors on the Beta (softmax) parameter?
 Fit.Priors.Parms(1,1) = 2;
 Fit.Priors.Parms(1,2) = 3;
 
-Fit.Priors.Use(2) = 1;   % use (gamma) priors on the Beta (softmax) parameter?
+Fit.Priors.Use(2) = 0;   % exponential prior on alpha and beta
 Fit.Priors.Parms(2,1) = 8;
 
 op = 1;
@@ -137,6 +138,16 @@ for h4 = 1:5
     end
     LogLik;
     sumLogLik = sum(LogLik);
+    
+    % Add regularizing priors
+    sumLogLik = sumLogLik - log(exppdf(h1,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(h2,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(h3,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(h4,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(t1,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(t2,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(t3,Fit.Priors.Parms(2,1)));
+    sumLogLik = sumLogLik - log(exppdf(t4,Fit.Priors.Parms(2,1)));
     
     if sumLogLik < min_sumLogLik
         min_sumLogLik = sumLogLik;
