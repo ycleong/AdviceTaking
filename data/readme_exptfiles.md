@@ -1,7 +1,7 @@
 ---
 output: html_document
 ---
-## Readme for data structures from Study 1 and 2
+## Study 1 and 2 (Matlab Data Structures)
 * AllData{:,1}: Subject IDs  
 * AllData{:,2}: Task Parameters
 * AllData{:,3}: Task Data  
@@ -35,4 +35,5 @@ output: html_document
         * pUP = Probability that the stock will increase in price  
 * AllData{:,4} = Data from 10 practice trials  
 
-
+## Study 3
+Data for each phase is saved in a separate CSV file. Variable names are the same as above. Script to convert CSV files into Matlab data structures available upon request. 
