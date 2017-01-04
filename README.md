@@ -1,4 +1,5 @@
-## Unrealistic optimism in advice-taking: A computational account (Online Supplement)
-### Leong &amp; Zaki (in prep)
+## Unrealistic optimism in advice-taking: A computational account 
+The code and data for <i> Unrealistic optimism in advice-taking: A computational account </i> is hosted on github at https://github.com/ycleong/AdviceTaking. 
+
 
 ### Data
