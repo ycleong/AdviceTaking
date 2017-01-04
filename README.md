@@ -1,5 +1,5 @@
 ## Unrealistic optimism in advice-taking: A computational account 
-The online supplement for our paper <i> Unrealistic optimism in advice-taking: A computational account </i> is hosted on GitHub at [https://github.com/ycleong/AdviceTaking](https://github.com/ycleong/AdviceTaking). In the spirit of reproducible science, we have made our data and code available. We have also included a tutorial on modeling our task, in service of other researchers who would like to reproduce our work or are interested in applying the same models in their own work.
+The online supplement for our paper <i> Unrealistic optimism in advice-taking: A computational account </i> is hosted on GitHub at [https://github.com/ycleong/AdviceTaking](https://github.com/ycleong/AdviceTaking). In the spirit of reproducible science, we have made our data and code available. We have also included a tutorial on modeling our task, in service of other researchers who would like to reproduce our work or are interested in applying the same models in their own work. If you have any questions, please do not hesitate to email me at ycleong@stanford.edu
 
 ### Summary
 Across a variety of decision-making domains, “expert” advisors are at chance at making accurate predictions. Yet, individuals continue to take their advice seriously, often at a significant personal cost. For example, investors are influenced by the advice of financial gurus, even when these gurus are no better than chance with their market forecasts. Similarly, politicians consult political pundits before making decisions, even though these pundits fail to accurately predict public opinion. Why do individuals have inflated beliefs about advisors’ expertise? More intriguingly, why do these inflated beliefs persist despite repeated experience with the advisors?
@@ -9,7 +9,10 @@ We propose that unrealistic optimism in advisors arise from a combination of opt
 The mechanisms underlying the optimistic bias observed in the current set of studies are basic cognitive processes that are likely to impact advice-taking behavior beyond financial decision-making scenarios. From healthcare professionals to political pundits, policy advisors to sports commentators, advisors are often portrayed as experts in their respective fields. Decision-makers are likely to have optimistic expectations about these advisors, expectations that could be wrong yet resistant to change. We believe that this research highlights the importance of tabulating and making public quantitative metrics of advisor accuracy, such that decision-makers can consider them when deciding whether to utilize a piece of advice. Advisors are often helpful, but knowing when they are not can help decision-makers discern how to incorporate advice when making choices.
 
 ### Data
-Study 1
+Data is stored at 
+
+
+[Study 1](data/AllData.mat)
 
 Study 2
 
