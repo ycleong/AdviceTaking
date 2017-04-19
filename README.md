@@ -30,3 +30,7 @@ See [here](data/readme_exptfiles.md) for a readme for information about the impo
     * [Expt 1](code/expt1/sim_model.m)  
     * [Expt 2](code/expt2/sim_model_expt2.m)
 * [Fitting participants' performance on the stock prediction task](code/StockPrediction.m)
+
+### Example Face Stimuli
+Face stimuli were drawn from the Interdisciplinary Affective Science Laboratory (IASLab) Face Set. We added 6 example faces here as supplemental material for our manuscript. Users who wish to use this dataset should contact the owners at www.affective-science.org. If requested by the owners, we would be happy to remove the 6 example photos here.
+* [Example Stimuli](stimuli/)
