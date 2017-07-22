@@ -154,7 +154,7 @@ for s = 1:nSub
     
     [lik(s,1) latents{s,1}] = jointfit_model(AdvisorCorrect,choice, Fit.Priors,x,Fit.Model);
     
-    AIC(s,1) = 2*lik(s) + (2*Fit.Nparms*(Fit.Nparms+1))/(Fit.NTrials(s)-Fit.Nparms-1);
+    AIC(s,1) = 2*lik(s) + Fit.Nparms*2 + (2*Fit.Nparms*(Fit.Nparms+1))/(Fit.NTrials(s)-Fit.Nparms-1);
     BIC(s,1) = 2*lik(s) + Fit.Nparms * log(Fit.NTrials(s));
 end
 
