@@ -36,4 +36,4 @@ output: html_document
 * AllData{:,4} = Data from 10 practice trials  
 
 ## Study 3
-Data for each phase is saved in a separate CSV file. Variable names are the same as above. Script to convert CSV files into Matlab data structures available upon request. 
+Data for each phase is saved in a separate CSV file. Variable names are the same as above.  
