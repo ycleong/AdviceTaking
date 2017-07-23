@@ -32,7 +32,7 @@ nSub = length(Sub);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Fit.Subjects = Sub; % which subjects to fit
 Fit.Model = Model;  % which model to fit
-Fit.NIter = 1;      % how many iterations of fits to run
+Fit.NIter = 3;      % how many iterations of fits to run
 
 Fit.Start = ones(1,length(Fit.Subjects));
 Fit.End = ones(1,length(Fit.Subjects))*108;

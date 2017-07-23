@@ -30,7 +30,7 @@ nSub = length(Sub);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set fitting parameters
 Fit.Subjects = Sub;
-Fit.NIter = 1;
+Fit.NIter = 3;
 Fit.Start = ones(1,length(Fit.Subjects));
 Fit.End = ones(1,length(Fit.Subjects))*108;
 

@@ -31,7 +31,7 @@ nSub = length(Sub);
 % Set fitting parameters
 Fit.Subjects = Sub;
 Fit.Model = Model;
-Fit.NIter = 1; % how many iterations of fits to run
+Fit.NIter = 3; % how many iterations of fits to run
 
 Fit.Start = ones(1,length(Fit.Subjects));
 Fit.End = ones(1,length(Fit.Subjects))*108;

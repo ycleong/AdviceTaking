@@ -28,6 +28,16 @@ See [here](data/readme_exptfiles.md) for a readme for information about the impo
 
 Wrapper scripts for all models can be found in the same folder, [modelname]_wrapper_expt[experiment number].m. For example, to run the Confirmation Bias or Bayesian Learning models for Experiment 1 data, go to [scripts/CB_BL](scripts/CB_BL) and run CB_BL_wrapper_expt1.m. 
 
+#### Model Comparison
+[ModelComparison.m](scripts/ModelComparison/ModelComparison.m): Loads model fits and compares models based on corrected average likelihood per trial.  
+
+- Requires that you already fit each model you want to compare (see above)  
+- Also runs Bayesian Estimation to examine if within-participant differences in corrected average likelihood per trial of the first two models are credibly different from zero  
+   - Dependencies:
+       - Nils Winter's Matlab Toolbox for Bayesian Estimation, available at: [https://github.com/NilsWinter/matlab-bayesian-estimation](https://github.com/NilsWinter/matlab-bayesian-estimation)
+       - JAGS: [http://mcmc-jags.sourceforge.net/](http://mcmc-jags.sourceforge.net/)  
+       - matjags: [http://psiexp.ss.uci.edu/research/programs_data/jags/](http://psiexp.ss.uci.edu/research/programs_data/jags/)  
+
 #### Modeling the stock trend  
 * [Fitting Bayesian Learning model to the stock trend](scripts/StockPrediction/StockPrediction.m)  
   

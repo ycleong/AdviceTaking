@@ -30,7 +30,7 @@ nSub = length(Sub);
 %                Initialize parameters for model-fitting                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Fit.Subjects = Sub; % which subjects to fit
-Fit.NIter = 1;      % how many iterations to fit
+Fit.NIter = 3;      % how many iterations to fit
 
 % Initialize paremters to fit: alpha, beta, tau
 Fit.Nparms = 3; 
